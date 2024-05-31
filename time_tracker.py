@@ -72,6 +72,10 @@ def string2datetime(in_str):
     return datetime.datetime.strptime(in_str, '%Y-%m-%d %H:%M:%S')
 
 
+MINUTES_PER_HOUR = 60
+SECONDS_PER_MINUTE = 60
+SECONDS_PER_HOUR = MINUTES_PER_HOUR * SECONDS_PER_MINUTE
+
 def doit(argv):
     task_filename = OUTPUT_FILE
 
@@ -105,8 +109,12 @@ def doit(argv):
             raise NotImplementedError('Possible user error, no start time or there is already a stop time')
         task, sub_task, start_time = task_entry
         stop_time = now
-        # TODO hours calc
-        task_entry = [task, sub_task, start_time, datetime2string(stop_time)]
+        # hours calc
+        start_time = string2datetime(start_time)
+        num_hours = stop_time - start_time  # massage
+        print(num_hours.total_seconds() / SECONDS_PER_HOUR)
+        num_hours = round(num_hours.total_seconds() / SECONDS_PER_HOUR, 2)
+        task_entry = [task, sub_task, datetime2string(start_time), datetime2string(stop_time), str(num_hours)]
         last_line = '\t'.join(task_entry) + '\n'
         lines[-1] = last_line
         write_file(lines)  # FIXME filename param
