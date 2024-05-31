@@ -60,6 +60,17 @@ def write_file(lines, output_file=OUTPUT_FILE):
         for line in lines:
             f.write(line)
 
+def datetime2string(in_date):
+    """date to yyyy-mm-dd hh:mm:ss
+    """
+    return in_date.strftime('%Y-%m-%d %H:%M:%S')
+
+
+def string2datetime(in_str):
+    """yyyy-mm-dd hh:mm:ss to date
+    """
+    return datetime.datetime.strptime(in_str, '%Y-%m-%d %H:%M:%S')
+
 
 def doit(argv):
     task_filename = OUTPUT_FILE
@@ -95,7 +106,7 @@ def doit(argv):
         task, sub_task, start_time = task_entry
         stop_time = now
         # TODO hours calc
-        task_entry = [task, sub_task, start_time, str(stop_time)]  # FIXME now/stop_time to string...
+        task_entry = [task, sub_task, start_time, datetime2string(stop_time)]
         last_line = '\t'.join(task_entry) + '\n'
         lines[-1] = last_line
         write_file(lines)  # FIXME filename param
@@ -112,7 +123,7 @@ def doit(argv):
             # handle empty file (bar header)
             # can start new task
             with open(task_filename, "a") as f:
-                f.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
+                f.write('\t'.join([task, sub_task, datetime2string(now)]) + '\n')
         else:
             # non-empty
             # ensure there isn't an already started entry
@@ -121,7 +132,7 @@ def doit(argv):
                 raise NotImplementedError('Probable user error, already have an in progress task')
             # TODO code duplicaton for file IO
             with open(task_filename, "a") as f:
-                f.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
+                f.write('\t'.join([task, sub_task, datetime2string(now)]) + '\n')
 
 def main(argv=None):
     if argv is None:
