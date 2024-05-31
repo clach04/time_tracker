@@ -42,23 +42,23 @@ first_day_of_week = find_first_day_of_week(now, which_day=MONDAY)  # assume work
 
 def create_tsv_if_needed(output_file=OUTPUT_FILE):
     if not os.path.exists(output_file):
-        with open(output_file, "w") as file:
-            file.write(HEADERS)
+        with open(output_file, "w") as f:
+            f.write(HEADERS)
 
 
 # TODO consider using csv module
 def read_file(input_file=OUTPUT_FILE):
-    with open(input_file, "r") as file:
-        lines = file.readlines()  # NOTE includes trailing newline
+    with open(input_file, "r") as f:
+        lines = f.readlines()  # NOTE includes trailing newline
     return lines
 
 # TODO append_file()
 def write_file(lines, output_file=OUTPUT_FILE):
     # NOTE lines need to include newline
-    with open(output_file, "w") as file:
+    with open(output_file, "w") as f:
         #file.write(HEADERS) Assumes header in lines
         for line in lines:
-            file.write(line)
+            f.write(line)
 
 
 def doit(argv):
@@ -111,8 +111,8 @@ def doit(argv):
         if first_line == last_line == HEADERS:
             # handle empty file (bar header)
             # can start new task
-            with open(task_filename, "a") as file:
-                file.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
+            with open(task_filename, "a") as f:
+                f.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
         else:
             # non-empty
             # ensure there isn't an already started entry
@@ -120,8 +120,8 @@ def doit(argv):
             if len(task_entry) == 3:
                 raise NotImplementedError('Probable user error, already have an in progress task')
             # TODO code duplicaton for file IO
-            with open(task_filename, "a") as file:
-                file.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
+            with open(task_filename, "a") as f:
+                f.write('\t'.join([task, sub_task, str(now)]) + '\n')  # FIXME now to string...
 
 def main(argv=None):
     if argv is None:
