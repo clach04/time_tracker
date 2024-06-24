@@ -19,7 +19,7 @@ Vaguely similar to:
 
 ## Anti-Features
 
-I.e. TOOD items.
+I.e. TODO items.
 
   * no summation
   * no nice error messages
