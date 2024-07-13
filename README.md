@@ -34,3 +34,8 @@ I.e. TODO items.
     py -3 time_tracker.py stop  # stop previously started project/task
 
 Logs to `time_tracker.tsv` in the current directory.
+
+## Alternatives
+
+  * https://github.com/TailorDev/Watson
+
