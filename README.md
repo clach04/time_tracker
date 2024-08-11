@@ -38,4 +38,6 @@ Logs to `time_tracker.tsv` in the current directory.
 ## Alternatives
 
   * https://github.com/TailorDev/Watson
+  * https://github.com/almarklein/timetagger
+      * https://github.com/almarklein/timetagger_cli
 
