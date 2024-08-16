@@ -41,3 +41,7 @@ Logs to `time_tracker.tsv` in the current directory.
   * https://github.com/almarklein/timetagger
       * https://github.com/almarklein/timetagger_cli
 
+Android
+
+  * https://github.com/Razeeman/Android-SimpleTimeTracker
+
