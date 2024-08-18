@@ -44,4 +44,5 @@ Logs to `time_tracker.tsv` in the current directory.
 Android
 
   * https://github.com/Razeeman/Android-SimpleTimeTracker
+  * https://github.com/mathisdt/trackworktime (location/WiFi based automated)
 
