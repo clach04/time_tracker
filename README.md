@@ -12,6 +12,9 @@ Vaguely similar to:
 
   * https://github.com/PFython/time_is_money
   * https://github.com/FelixTheC/QT-TimeIsMoney
+  * punch for todo.txt
+      * https://github.com/adewinter/punch
+      * https://github.com/haochong/punch-time-tracking-plus
 
 ## Features
 
