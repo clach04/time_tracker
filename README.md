@@ -16,6 +16,7 @@ Vaguely similar to:
       * https://github.com/adewinter/punch
       * https://github.com/haochong/punch-time-tracking-plus
   * todo.sh (todo.txt-cli) plugin https://git.sr.ht/~proycon/todotxt-more/tree/master/item/todo.actions.d/timetrack
+  * https://github.com/jotaen/klog
 
 ## Features
 
